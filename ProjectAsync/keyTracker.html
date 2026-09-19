@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyTracker</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        p{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 50px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <p>Press the key and see the magic</p>
+    <p id="display"></p>
+    <p id = "keycode"></p>
+    <p id = "code"></p>
+
+</body>
+<script>
+    //keyup and keydown both are key tracker one up trigger when you release the key and down trigger when you press the key
+    const display = document.querySelector("#display")
+    const keycode = document.querySelector("#keycode")
+    const code = document.querySelector("#code")
+    document.addEventListener('keydown',(e)=>{
+        display.innerHTML = `you pressed key: ${e.key == ' '? 'Space' : e.key}`
+        keycode.innerHTML = `you pressed key: ${e.keyCode}`
+        code.innerHTML = `you pressed key: ${e.code}`
+    })
+</script>
+</html>

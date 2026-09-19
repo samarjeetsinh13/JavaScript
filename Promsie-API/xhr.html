@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: #343164;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card{
+            height: 580px;
+            width: 65%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card h1{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            font-size: 45px;
+
+        }
+
+        #img{
+            height: 300px;
+        }
+
+        .text-cont{
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card p{
+            font-size: 17px;
+            text-align: center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #get-info{
+            height: 30px;
+            width: 100px;
+            border: none;
+            outline: none;
+            border-radius: 15px;
+            background-color: #546543;
+            font-size: 17px;
+            color: #fff;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Github</h1>
+        <img src="" alt="" id="img">
+        <div class="text-cont">
+            <p id="username"></p>
+            <p id="followers"></p>
+        </div>
+        <button id="get-info">Get Info</button>
+    </div>
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest()
+    const folloCol = document.querySelector("#followers")
+    const userCol = document.querySelector("#username")
+    const photoCol = document.querySelector("#img")
+    const getInfo = document.querySelector("#get-info")
+    xhr.open('GET', requestURL)
+    let followers;
+    let photoURL;
+    let username;
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        //ready state show the state of the repuest 
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            console.log(data)
+            followers = data.followers
+            photoURL = data.avatar_url
+            username = data.login
+        }
+    }
+//  use to track the event continuosally
+    const changes = ()=>{
+        folloCol.innerHTML = `Followers: ${followers}`
+        photoCol.src = photoURL
+        userCol.innerHTML = `Username: ${username}`
+    }
+    getInfo.addEventListener('click', changes)
+    xhr.send()
+</script>
+</html>

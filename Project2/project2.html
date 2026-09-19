@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI | Calculator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: darkgreen;
+        }
+        
+        .container{
+            height: 100%;
+            width: 100%;
+            background-color: darkgoldenrod;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2.5em;
+        }
+
+        .height{
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+        }
+
+        .height p{
+            font-size: 1.2em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 100;
+        }
+
+        .height input{
+            height: 20px;
+            width: 150px;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            padding: 1px;
+            font-size: 0.8em;
+            outline: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .weight p{
+            font-size: 1.2em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 100;
+        }
+
+        .weight input{
+            height: 20px;
+            width: 150px;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            padding: 1px;
+            font-size: 0.8em;
+            outline: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .weight{
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+        }
+
+        .btn button{
+            height: 25px;
+            width: 120px;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            padding: 1px;
+            font-size: 1em;
+            outline: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .result{
+            height: auto;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: -25px;
+        }
+
+        .result h1{
+            text-align: center;
+            padding: 1px;
+            font-size: 2.5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .value{
+            height: 26px;
+            width: 250px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .value p{
+            text-align: center;
+            padding: 1px;
+            font-size: 1em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="height">
+            <p>Height(cm) :</p>
+            <input type="text" placeholder="Enter Your height" id="height">
+        </div>
+        <div class="weight">
+            <p>weight(kg) :</p>
+            <input type="text" placeholder="Enter Your weight" id="weight">
+        </div>
+        <div class="btn">
+            <button id="calculate">Calculate</button>
+        </div>
+        <div class="result">
+            <h1>BMI</h1>
+            <span class="value">
+                <p id="result">Your BMI</p>
+            </span>
+        </div>
+    </div>
+    
+</body>
+    <script src="project2.js"></script>
+</html>

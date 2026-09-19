@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+    <style>
+        body{
+            background: #343542;
+        }
+    </style>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+</body>
+    <script>
+        function init() {
+            let name = "Mozilla"; // name is a local variable created by init
+            function displayName() {// displayName() is the inner function, that forms a closure
+                console.log(name);
+                let secret = "123456"; 
+
+            // use variable declared in the parent function
+            
+        }
+
+            // console.log(secret);
+            // secret can't access by the outer/parent fuction
+            
+            displayName();
+        }
+        init();
+        //give the username 
+        //inner fucntion can access the scope of outer function
+
+
+
+        function makeFunc() {
+            const name = "Mozilla";
+            function displayName() {
+                console.log(name);
+            }
+            return displayName;
+        }
+
+        const myFunc = makeFunc();
+        
+        //myFunc recive the displayname's outer function lexical scope
+        //that's why the name print
+        
+        myFunc();
+    </script>
+    <script>
+        // document.querySelector("#orange").addEventListener("click", function(){
+        //     document.body.style.backgroundColor = 'orange'
+        // })
+        // document.querySelector("#green").addEventListener("click", function(){
+        //     document.body.style.backgroundColor = 'green'
+        // })
+
+        // function clickHandler(color){
+        //     document.body.style.backgroundColor = `${color}`
+        // }
+
+        // document.querySelector("#orange").addEventListener("click", clickHandler("orange"))
+
+        //It can directly execute the function and change the color without pressing the button 
+
+        function clickHandler(color){
+            return function (){
+                document.body.style.backgroundColor = `${color}`
+            }
+            // return the function and give with the complete lexical scope of the parent function 
+        }
+
+        document.querySelector("#orange").addEventListener("click", clickHandler("orange"))
+
+    </script>
+</html>

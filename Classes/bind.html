@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React{
+        constructor(library, server){
+            this.library = library;//this 1
+            this.server =server;
+            document
+                .querySelector("button")
+                .addEventListener('click', this.handleClick.bind(this))
+        }//bind can bind this 1 to the handleClick throughout the operation 
+        //Don't need to use in modern JS
+
+
+        handleClick(){
+            console.log("button clicked");
+            console.log(this);
+        }
+    }
+    const react = new React("react native", "http://127.0.0.1:5501/Classes/bind.html")
+</script>
+</html>

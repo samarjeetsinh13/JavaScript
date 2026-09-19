@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: #545476;
+        }
+
+        .container{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .elements{
+            height: 500px;
+            width: 500px;
+            background-color: #546542;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #name{
+            font-size: 45px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #number{
+            height: 25px;
+            width: 150px;
+            outline: none;
+            border: none;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+            opacity: 0.8;
+        }
+
+        #submit{
+            height: 25px;
+            width: 100px;
+            outline: none;
+            border: none;
+            background-color: rosybrown;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 10px;
+            opacity: 0.8;
+        }
+
+        #previous-guesses{
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        #attempt{
+            font-size: 20px;
+            margin-top: -15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        #result{
+            height: 500px;
+            width: 500px;
+            background-color: #fff;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 100px;
+            display: none;
+        }
+
+        #result h1{
+            margin-top: -125px;
+        }
+
+        #winning-result{
+            position: absolute;
+            display: none;
+            bottom: 225px;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #loosing-result{
+            position: absolute;
+            display: none;
+            bottom: 225px;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class="elements">
+            <h1 id = "name">Guess the Number</h1>
+            <input type="text" id="number" placeholder="Enter the Number">
+            <button type="submit" id="submit">Submit Guess</button>
+            <p id="previous-guesses">previous guess:</p>
+            <p id="attempt">attempt left:</p>
+        </div>
+        <div id = "result" >
+            <h1 id="name">Guess the Number</h1>
+            <p id = "winning-result"></p>
+            <p id = "loosing-result"></p>
+        </div>
+    </div>
+</body>
+    <script src="project4.js"></script>
+</html>
